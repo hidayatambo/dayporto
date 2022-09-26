@@ -4,6 +4,10 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
+$app->get('/cowsay', function() use($app) {
+    $app['monolog']->addDebug('cowsay');
+    return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
+  });
 
 /*
 |--------------------------------------------------------------------------
